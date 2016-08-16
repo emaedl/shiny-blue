@@ -1,12 +1,68 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>alfro.shiny-blue.examples</groupId>
-    <artifactId>shinyBlueMain</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-  </parent>
-  <artifactId>shinyBlueAsciidoc</artifactId>
-  <name>shinyBlueAsciidoc</name>
-  <description>Asciidoc documentation for shiny-blue examples
-</description>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>alfro.shiny-blue.examples</groupId>
+		<artifactId>shinyBlueMain</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../shinyBlueMain/pom.xml</relativePath>
+	</parent>
+	<artifactId>shinyBlueAsciidoc</artifactId>
+	<name>shinyBlueAsciidoc</name>
+	<description>Asciidoc documentation for shiny-blue examples</description>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>3.3</version>
+				<dependencies>
+					<dependency>
+						<groupId>org.asciidoctor</groupId>
+						<artifactId>asciidoctor-maven-plugin</artifactId>
+						<version>1.5.3</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+			<plugin>
+				<groupId>org.asciidoctor</groupId>
+				<artifactId>asciidoctor-maven-plugin</artifactId>
+				<version>1.5.3</version>
+				<executions>
+					<execution>
+						<id>output-html</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>process-asciidoc</goal>
+						</goals>
+						<configuration>
+							<backend>html5</backend>
+							<doctype>book</doctype>
+							<sourceHighlighter>coderay</sourceHighlighter>
+							<attributes>
+								<toc>left</toc>
+							</attributes>
+						</configuration>
+					</execution>
+					<execution>
+						<id>output-pdf</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>process-asciidoc</goal>
+						</goals>
+						<configuration>
+							<backend>pdf</backend>
+							<doctype>book</doctype>
+						</configuration>
+					</execution>
+				</executions>
+				<configuration>
+					<sourceDirectory>${basedir}/src/main/asciidoc</sourceDirectory>
+					<attributes>
+						<project-version>${project.version}</project-version>
+					</attributes>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>
