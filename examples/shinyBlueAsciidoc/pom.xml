@@ -5,9 +5,7 @@
     <artifactId>shinyBlueMain</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <groupId>alfro.shiny-blue.examples</groupId>
   <artifactId>shinyBlueAsciidoc</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
   <name>shinyBlueAsciidoc</name>
   <description>Asciidoc documentation for shiny-blue examples
 </description>
