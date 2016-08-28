@@ -1,0 +1,7 @@
+Hello world, this is 
+application: ${application.title}
+version: ${application.formatted-verson}
+build-with: Spring-Boot ${spring-boot.formatted-version}
+running on port: ${local.server.port}
+app name: ${app.name}
+app description: ${app.description}
